@@ -10,13 +10,26 @@ export const enum ErrorKind {
   Unprocessable = "unprocessable",
 }
 
-export class AppError extends Error {
-  public kind: ErrorKind = ErrorKind.Unknown;
-  public code: string = "app.unknown";
-  public params: Record<string, any> = {};
+type ErrorCode = string;
 
-  constructor(...args: any[]) {
-    super(...args);
+export abstract class AppError<T> extends Error {
+  protected kind: ErrorKind = ErrorKind.Unknown;
+  protected code: ErrorCode = "unknown";
+  protected params: T = {} as T;
+
+  // Only works if using target ES2022?: ErrorOptions is a built-in type.
+  constructor(message: string, options?: ErrorOptions) {
+    super(message, options);
     this.name = this.constructor.name;
+  }
+
+  toJSON(): Record<string, any> {
+    return {
+      name: this.name,
+      code: this.code,
+      kind: this.kind,
+      message: this.message,
+      params: this.params,
+    };
   }
 }
