@@ -6,7 +6,7 @@ import {
   PasswordVerifyError,
 } from "./errors";
 import { MIN_PASSWORD_LENGTH } from "./rules";
-import type { EncryptedPassword,PlaintextPassword } from "./types";
+import type { EncryptedPassword, PlaintextPassword } from "./types";
 
 export class PlaintextPasswordFactory {
   static create(password: string): PlaintextPassword {
@@ -38,11 +38,12 @@ export class EncryptedPasswordFactory {
   static async verify(
     encryptedPassword: EncryptedPassword,
     password: PlaintextPassword
-  ): Promise<boolean> {
+  ) {
     try {
-      await argon2.verify(encryptedPassword, password);
-
-      return true;
+      const match = await argon2.verify(encryptedPassword, password);
+      if (!match) {
+        throw new Error("password do not match");
+      }
     } catch (error) {
       throw new PasswordVerifyError({ cause: error as Error });
     }
