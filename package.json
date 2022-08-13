@@ -1,0 +1,20 @@
+{
+  "name": "clean",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "NODE_PATH=./src nodemon",
+    "build": "tsc",
+    "start": "NODE_PATH=./dist node dist/index.js"
+  },
+  "keywords": [],
+  "author": "alextanhongpin <alextan220990@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.2",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}

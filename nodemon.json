@@ -1,0 +1,5 @@
+{
+  "watch": ["src"],
+  "ignore": ["src/**/*.test.ts"],
+  "ext": "ts,json,graphql"
+}
