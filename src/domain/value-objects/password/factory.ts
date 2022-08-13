@@ -1,11 +1,12 @@
-import type { PlaintextPassword, EncryptedPassword } from "./types";
-import { MIN_PASSWORD_LENGTH } from "./rules";
+import argon2 from "argon2";
+
 import {
-  PasswordTooShortError,
   PasswordEncryptionError,
+  PasswordTooShortError,
   PasswordVerifyError,
 } from "./errors";
-import argon2 from "argon2";
+import { MIN_PASSWORD_LENGTH } from "./rules";
+import type { EncryptedPassword,PlaintextPassword } from "./types";
 
 export class PlaintextPasswordFactory {
   static create(password: string): PlaintextPassword {

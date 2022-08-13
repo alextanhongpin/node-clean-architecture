@@ -1,5 +1,5 @@
-import type { Email } from "./types";
 import { EmailValidationError } from "./errors";
+import type { Email } from "./types";
 
 export class EmailFactory {
   static create(email: string): Email {

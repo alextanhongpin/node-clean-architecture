@@ -23,7 +23,7 @@ export abstract class AppError<T> extends Error {
     this.name = this.constructor.name;
   }
 
-  toJSON(): Record<string, any> {
+  toJSON(): Record<string, unknown> {
     return {
       name: this.name,
       code: this.code,

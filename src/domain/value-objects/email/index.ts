@@ -1,3 +1,3 @@
 export * from "./errors";
-export * from "./types";
 export * from "./factory";
+export * from "./types";

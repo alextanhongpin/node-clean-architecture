@@ -1,9 +1,8 @@
-import type { Email } from "domain/value-objects/email";
-import type { PlaintextPassword } from "domain/value-objects/password";
-import type { RegisterRequest, LoginRequest } from "./types";
-import type { CreateRequest, IAuthRepository } from "features/auth/repository";
 import type { User } from "domain/models/user";
 import { EncryptedPasswordFactory } from "domain/value-objects/password";
+import type { CreateRequest, IAuthRepository } from "features/auth/repository";
+
+import type { LoginRequest,RegisterRequest } from "./types";
 export * from "./types";
 
 export interface IAuthUsecase {

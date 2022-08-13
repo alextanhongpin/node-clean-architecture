@@ -6,13 +6,18 @@
   "scripts": {
     "dev": "NODE_PATH=./src nodemon",
     "build": "tsc",
-    "start": "NODE_PATH=./dist node dist/index.js"
+    "start": "NODE_PATH=./dist node dist/index.js",
+    "lint": "eslint --fix . --ext .ts"
   },
   "keywords": [],
   "author": "alextanhongpin <alextan220990@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"

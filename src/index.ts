@@ -1,20 +1,22 @@
-import { AuthUsecase, CreateRequest } from "features/auth";
+import type { User } from "domain/models/user";
 import type { Email } from "domain/value-objects/email";
 import { EmailFactory } from "domain/value-objects/email";
-import type { User } from "domain/models/user";
 import {
-  PlaintextPasswordFactory,
   EncryptedPasswordFactory,
+  PlaintextPasswordFactory,
 } from "domain/value-objects/password";
+import { AuthUsecase, CreateRequest } from "features/auth";
 import { AppError } from "types/error";
 
 async function main() {
   try {
     const repo = {
       async create(req: CreateRequest): Promise<User> {
+        console.log(req);
         return { id: "john", encryptedPassword: "hello" } as User;
       },
       async findByEmail(email: Email): Promise<User> {
+        console.log(email);
         const encryptedPassword = await EncryptedPasswordFactory.create(
           PlaintextPasswordFactory.create("12345678")
         );

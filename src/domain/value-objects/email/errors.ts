@@ -1,5 +1,6 @@
+import { AppError,ErrorKind } from "types/error";
+
 import type { Email } from "./types";
-import { ErrorKind, AppError } from "types/error";
 
 export class EmailError<T> extends AppError<T> {
   constructor(message: string, options?: ErrorOptions) {

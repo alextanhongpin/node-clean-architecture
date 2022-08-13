@@ -1,8 +1,5 @@
 import type { Email } from "domain/value-objects/email";
-import type {
-  PlaintextPassword,
-  EncryptedPassword,
-} from "domain/value-objects/password";
+import type { PlaintextPassword } from "domain/value-objects/password";
 
 export interface RegisterRequest {
   name: string;
