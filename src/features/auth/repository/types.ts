@@ -1,6 +1,5 @@
-import type { User } from "domain/models/user";
-import type { Email } from "domain/value-objects/email";
-import type { EncryptedPassword } from "domain/value-objects/password";
+import type { User } from "domain/models";
+import type { Email, EncryptedPassword } from "domain/value-objects";
 
 export interface IAuthRepository {
   findByEmail(email: Email): Promise<User>;

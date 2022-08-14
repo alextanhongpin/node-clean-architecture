@@ -1,10 +1,10 @@
-import type { User } from "domain/models/user";
-import type { Email } from "domain/value-objects/email";
-import { EmailFactory } from "domain/value-objects/email";
+import type { User } from "domain/models";
+import type { Email } from "domain/value-objects";
 import {
+  EmailFactory,
   EncryptedPasswordFactory,
   PlaintextPasswordFactory,
-} from "domain/value-objects/password";
+} from "domain/value-objects";
 import { AuthUsecase, CreateRequest } from "features/auth";
 import { AppError } from "types/error";
 

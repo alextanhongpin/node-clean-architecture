@@ -1,5 +1,5 @@
-import type { User } from "domain/models/user";
-import { EncryptedPasswordFactory } from "domain/value-objects/password";
+import type { User } from "domain/models";
+import { EncryptedPasswordFactory } from "domain/value-objects";
 import type { CreateRequest, IAuthRepository } from "features/auth/repository";
 
 import type { LoginRequest, RegisterRequest } from "./types";
