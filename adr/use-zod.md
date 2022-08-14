@@ -28,3 +28,27 @@ const LoginRequestSchema = z.object({
   email: EmailSchema,
 });
 ```
+
+
+## Using zod with custom error
+
+If you already have your own custom error, you can also use it with Zod.
+
+```typescript
+export const EmailSchema = z.custom<Email>((val) =>
+  z
+    .string()
+    .refine(
+      (val) => EmailFactory.valid(val as Email),
+      (val) => {
+        const error = new EmailValidationError(val as Email);
+        return {
+          message: error.message,
+          path: ["email"],
+          params: error.toJSON(),
+        };
+      }
+    )
+    .parse(val)
+);
+```

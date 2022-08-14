@@ -9,8 +9,12 @@ export class EmailFactory {
     return value;
   }
 
+  static valid(email: Email): boolean {
+    return email.includes("@");
+  }
+
   static validate(email: Email) {
-    if (!email.includes("@")) {
+    if (!EmailFactory.valid(email)) {
       throw new EmailValidationError(email);
     }
   }
