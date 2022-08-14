@@ -5,6 +5,7 @@ Custom errors makes it easier to capture more meaningful errors in the applicati
 
 The core domain should not contain REST http error codes (e.g. 404 Not Found).
 
+Internal errors should not be shown to the user. As such, errors that does not extend AppError should be converted to InternalError. 
 
 ## Implementation
 
@@ -65,3 +66,17 @@ console.log(userNotFoundErr.cause)
 console.log(JSON.stringify(userNotFoundErr, null, 2))
 console.log(usecaseErr instanceof UserNotFoundError)
 ```
+
+
+## Error cause
+
+The new JS target supports errors with cause. Thus, any other internal errors can be pass as the cause, similar to how golang errors wrap errors. That way, we can still present the readable AppError and log the internal errors for more information.
+
+## Aggregate Error
+
+For certain usecases where you need to capture multiple errors, use AggregateError, which is similar to how Notification pattern works.
+
+## Validation errors
+
+
+As mentioned, all errors should be extending AppError. If you are using external library for validation, consider wrapping the error information from the validation library into the AppError params. For example, when validating the login request, consider creating a LoginValidationError. Then when validating with Zod, pass the Zod errors as the params for the LoginValidationError 
