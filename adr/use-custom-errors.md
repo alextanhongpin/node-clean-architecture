@@ -1,4 +1,12 @@
-# Error
+# Use Custom Errors
+
+
+Custom errors makes it easier to capture more meaningful errors in the application, and also allows us to map the errors easily to REST or Graphql layers.
+
+The core domain should not contain REST http error codes (e.g. 404 Not Found).
+
+
+## Implementation
 
 ```typescript
 const enum ErrorKind {
