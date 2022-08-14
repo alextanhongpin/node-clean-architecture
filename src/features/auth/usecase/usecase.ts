@@ -13,7 +13,7 @@ export class AuthUsecase implements IAuthUsecase {
   constructor(private repo: IAuthRepository) {}
 
   async register(req: RegisterRequest): Promise<User> {
-    const encryptedPassword = await EncryptedPasswordFactory.create(
+    const encryptedPassword = await EncryptedPasswordFactory.encrypt(
       req.password
     );
 

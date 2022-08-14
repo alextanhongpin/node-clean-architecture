@@ -17,7 +17,7 @@ async function main() {
       },
       async findByEmail(email: Email): Promise<User> {
         console.log(email);
-        const encryptedPassword = await EncryptedPasswordFactory.create(
+        const encryptedPassword = await EncryptedPasswordFactory.encrypt(
           PlaintextPasswordFactory.create("12345678")
         );
         return { id: "john", encryptedPassword } as User;

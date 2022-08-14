@@ -24,7 +24,9 @@ export class PlaintextPasswordFactory {
 }
 
 export class EncryptedPasswordFactory {
-  static async create(password: PlaintextPassword): Promise<EncryptedPassword> {
+  static async encrypt(
+    password: PlaintextPassword
+  ): Promise<EncryptedPassword> {
     PlaintextPasswordFactory.validate(password);
 
     try {
